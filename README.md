@@ -1,5 +1,7 @@
 # xk6-output-opentelemetry
 
+📖 **[Full Documentation](https://henrikrexed.github.io/henrikrexed-xk6-output-opentelemetry/)** — Getting started, configuration, JS API reference, examples
+
 A [k6](https://k6.io/) output extension that exports **both metrics AND traces** to any OTLP-compatible backend via gRPC or HTTP, with W3C Baggage injection for downstream service correlation.
 
 ## Features

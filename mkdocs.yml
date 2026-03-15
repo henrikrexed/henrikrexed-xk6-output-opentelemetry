@@ -1,0 +1,37 @@
+site_name: xk6-output-opentelemetry
+site_description: k6 extension for OpenTelemetry metrics, traces, and baggage export
+repo_url: https://github.com/henrikrexed/xk6-output-opentelemetry
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep-purple
+      accent: amber
+  features:
+    - navigation.tabs
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - tables
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started/index.md
+  - Reference:
+      - Configuration: reference/configuration.md
+      - JavaScript API: reference/js-api.md
+  - Architecture: architecture.md
+  - Examples:
+      - Basic Usage: examples/basic.md
+      - Custom Baggage: examples/custom-baggage.md
+      - Backend Setup: examples/backends.md

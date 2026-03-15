@@ -1,0 +1,77 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+  packages: write
+  security-events: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+          cache: true
+
+      - name: Install xk6
+        run: go install go.k6.io/xk6/cmd/xk6@latest
+
+      - name: Build k6 binary (linux/amd64)
+        run: |
+          xk6 build --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry=. --output k6-linux-amd64
+        env:
+          GOOS: linux
+          GOARCH: amd64
+
+      - name: Build k6 binary (linux/arm64)
+        run: |
+          xk6 build --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry=. --output k6-linux-arm64
+        env:
+          GOOS: linux
+          GOARCH: arm64
+
+      - name: Build k6 binary (darwin/arm64)
+        run: |
+          xk6 build --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry=. --output k6-darwin-arm64
+        env:
+          GOOS: darwin
+          GOARCH: arm64
+
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          path: .
+          output-file: sbom.spdx.json
+
+      - name: Trivy vulnerability scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: sarif
+          output: trivy-results.sarif
+
+      - name: Upload Trivy SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: trivy-results.sarif
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            k6-linux-amd64
+            k6-linux-arm64
+            k6-darwin-arm64
+            sbom.spdx.json

@@ -3,6 +3,7 @@ module github.com/henrikrexed/xk6-output-opentelemetry
 go 1.25.0
 
 require (
+	github.com/grafana/sobek v0.0.0-20260121195222-d8d9202018c5
 	github.com/mstoykov/atlas v0.0.0-20220811071828-388f114305dd
 	github.com/sirupsen/logrus v1.9.4
 	github.com/stretchr/testify v1.11.1
@@ -31,7 +32,6 @@ require (
 	github.com/go-sourcemap/sourcemap v2.1.4+incompatible // indirect
 	github.com/google/pprof v0.0.0-20260115054156-294ebfa9ad83 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/grafana/sobek v0.0.0-20260121195222-d8d9202018c5 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.28.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.9.0 // indirect

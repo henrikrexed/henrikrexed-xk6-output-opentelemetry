@@ -35,3 +35,4 @@ nav:
       - Basic Usage: examples/basic.md
       - Custom Baggage: examples/custom-baggage.md
       - Backend Setup: examples/backends.md
+      - OTel Demo Light: examples/otel-demo-light.md

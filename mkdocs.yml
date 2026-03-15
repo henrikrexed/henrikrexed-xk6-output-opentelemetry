@@ -1,6 +1,6 @@
 site_name: xk6-output-opentelemetry
 site_description: k6 extension for OpenTelemetry metrics, traces, and baggage export
-repo_url: https://github.com/henrikrexed/xk6-output-opentelemetry
+repo_url: https://github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
 
 theme:
   name: material

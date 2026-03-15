@@ -9,7 +9,7 @@
 ## Build
 
 ```bash
-xk6 build v1.6.1 --with github.com/henrikrexed/xk6-output-opentelemetry
+xk6 build v1.6.1 --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
 ```
 
 This produces a `k6` binary with the extension built in.
@@ -17,7 +17,7 @@ This produces a `k6` binary with the extension built in.
 ### Build from source
 
 ```bash
-git clone https://github.com/henrikrexed/xk6-output-opentelemetry.git
+git clone https://github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry.git
 cd xk6-output-opentelemetry
 make build
 ```

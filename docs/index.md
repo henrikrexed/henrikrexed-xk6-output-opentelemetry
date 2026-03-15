@@ -25,7 +25,7 @@ graph LR
 
 ```bash
 # Build k6 with the extension
-xk6 build v1.6.1 --with github.com/henrikrexed/xk6-output-opentelemetry
+xk6 build v1.6.1 --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
 
 # Run with OTel output
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \

@@ -2,11 +2,11 @@
 package xk6otel
 
 import (
-	"github.com/henrikrexed/xk6-output-opentelemetry/pkg/otel"
+	"github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry/pkg/otel"
 	"go.k6.io/k6/output"
 
 	// Import the JS module so its init() runs and registers "k6/x/otel"
-	_ "github.com/henrikrexed/xk6-output-opentelemetry/pkg/jsmodule"
+	_ "github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry/pkg/jsmodule"
 )
 
 func init() {

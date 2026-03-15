@@ -15,10 +15,10 @@ A [k6](https://k6.io/) output extension that exports **both metrics AND traces**
 
 ```bash
 # Using xk6
-xk6 build v1.6.1 --with github.com/henrikrexed/xk6-output-opentelemetry
+xk6 build v1.6.1 --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
 
 # Or clone and build locally
-git clone https://github.com/henrikrexed/xk6-output-opentelemetry.git
+git clone https://github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry.git
 cd xk6-output-opentelemetry
 make build
 ```

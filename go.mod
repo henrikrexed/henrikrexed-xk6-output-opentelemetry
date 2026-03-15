@@ -1,4 +1,4 @@
-module github.com/henrikrexed/xk6-output-opentelemetry
+module github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
 
 go 1.25.0
 

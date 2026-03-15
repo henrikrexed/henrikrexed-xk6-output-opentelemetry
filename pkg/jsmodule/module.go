@@ -131,10 +131,7 @@ func (api *OtelAPI) Request(name, method, url string, params ...sobek.Value) (so
 
 	// Build args: for get/del it's (url, params?), for post/put/patch it's (url, body?, params?)
 	args := []sobek.Value{rt.ToValue(url)}
-	for _, p := range params {
-		args = append(args, p)
-	}
-
+targs = append(args, params...)
 	result, err := callable(httpObj, args...)
 
 	// Clear request name

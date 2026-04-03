@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.25'
+          go-version-file: 'go.mod'
           cache: true
 
       - name: Download dependencies
@@ -46,7 +46,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.25'
+          go-version-file: 'go.mod'
           cache: true
 
       - name: Install xk6
@@ -65,7 +65,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.25'
+          go-version-file: 'go.mod'
           cache: true
 
       - name: golangci-lint
@@ -83,7 +83,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: '1.25'
+          go-version-file: 'go.mod'
           cache: true
 
       - name: Run govulncheck

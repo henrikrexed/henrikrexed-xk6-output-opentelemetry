@@ -36,10 +36,16 @@ jobs:
 
       - name: Fetch latest k6 version
         id: k6version
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          K6_VERSION=$(curl -s https://api.github.com/repos/grafana/k6/releases/latest | jq -r '.tag_name')
+          K6_VERSION=$(curl -s -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/repos/grafana/k6/releases/latest | jq -r '.tag_name')
+          if [ "$K6_VERSION" = "null" ] || [ -z "$K6_VERSION" ]; then
+            echo "::warning::Could not fetch latest k6 version, building with latest"
+            K6_VERSION=""
+          fi
           echo "version=$K6_VERSION" >> "$GITHUB_OUTPUT"
-          echo "Building with k6 $K6_VERSION"
+          echo "Building with k6 ${K6_VERSION:-latest}"
 
       - name: Build k6 with extension
         env:

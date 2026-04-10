@@ -1,6 +1,6 @@
 module github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
 
-go 1.25.8
+go 1.25.9
 
 require (
 	github.com/grafana/sobek v0.0.0-20260121195222-d8d9202018c5

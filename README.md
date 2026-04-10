@@ -13,15 +13,45 @@ A [k6](https://k6.io/) output extension that exports **both metrics AND traces**
 - **Dual protocol**: gRPC and HTTP OTLP export
 - **Configurable**: Feature toggles for traces, metrics, and baggage independently
 
-## Build
+## Install
+
+### Pre-built binaries
+
+Download a ready-to-use k6 binary (with the extension included) from the
+[Releases](https://github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry/releases) page.
+Binaries are available for Linux (amd64/arm64), macOS (amd64/arm64), and Windows (amd64).
 
 ```bash
-# Using xk6
-xk6 build v1.6.1 --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
+curl -LO https://github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry/releases/latest/download/k6-linux-amd64
+chmod +x k6-linux-amd64 && mv k6-linux-amd64 k6
+```
 
-# Or clone and build locally
+### Docker
+
+```bash
+docker pull ghcr.io/henrikrexed/henrikrexed-xk6-output-opentelemetry:latest
+
+docker run --rm \
+  -e K6_OTEL_GRPC_EXPORTER_INSECURE=true \
+  -e K6_OTEL_EXPORTER_OTLP_ENDPOINT=host.docker.internal:4317 \
+  -v $(pwd)/test.js:/home/k6/test.js \
+  ghcr.io/henrikrexed/henrikrexed-xk6-output-opentelemetry:latest \
+  run --out opentelemetry /home/k6/test.js
+```
+
+### Build with xk6
+
+Combine with other k6 extensions using [xk6](https://github.com/grafana/xk6):
+
+```bash
+xk6 build latest --with github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry
+```
+
+### Build from source
+
+```bash
 git clone https://github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry.git
-cd xk6-output-opentelemetry
+cd henrikrexed-xk6-output-opentelemetry
 make build
 ```
 

@@ -4,6 +4,8 @@
 
 A [k6](https://k6.io/) output extension that exports **both metrics AND traces** to any OTLP-compatible backend via gRPC or HTTP, with W3C Baggage injection for downstream service correlation.
 
+> **Upgrading from a pre-rename build?** The k6 output type is now `otel-extended` (was `opentelemetry`). Run with `--out otel-extended` instead of `--out opentelemetry`. k6 v1.0 added its own built-in `opentelemetry` output (metrics only) — the rename avoids that collision so this extension can keep emitting traces + W3C Baggage. See [ADR-001](docs/architecture.md#adr-001-output-type-registered-as-otel-extended).
+
 ## Features
 
 - **Metrics**: All k6 built-in metrics exported as OTel metrics (counters, gauges, histograms)

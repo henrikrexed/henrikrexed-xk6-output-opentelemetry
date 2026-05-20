@@ -2,6 +2,9 @@
 
 A k6 output extension that exports **metrics, traces, and W3C Baggage** to any OTLP-compatible backend.
 
+!!! warning "Upgrading from a pre-rename build"
+    The k6 output type is now `otel-extended` (was `opentelemetry`). Run with `--out otel-extended` instead of `--out opentelemetry`. k6 v1.0 promoted its own built-in `opentelemetry` output (metrics only) and refuses to load an extension under the same name — the rename avoids that collision so this extension can keep emitting traces + W3C Baggage. See [ADR-001](architecture.md#adr-001-output-type-registered-as-otel-extended).
+
 ```mermaid
 graph LR
     k6["k6 Load Test"] -->|"metrics (OTLP)"| Collector["OTel Collector"]

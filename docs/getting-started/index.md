@@ -1,5 +1,8 @@
 # Getting Started
 
+!!! warning "Upgrading from a pre-rename build"
+    The k6 output type is now `otel-extended` (was `opentelemetry`). Run with `--out otel-extended` instead of `--out opentelemetry`. The rename avoids a collision with the k6 v1.0 built-in `opentelemetry` output, which only emits metrics. Details in [ADR-001](../architecture.md#adr-001-output-type-registered-as-otel-extended).
+
 ## Prerequisites
 
 - An OTLP-compatible backend (Jaeger, Grafana Cloud, etc.) or the OTel Collector

@@ -25,7 +25,7 @@ Run:
 ```bash
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \
 K6_OTEL_EXPORTER_OTLP_ENDPOINT=localhost:4317 \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 This produces:

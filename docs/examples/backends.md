@@ -9,7 +9,7 @@ docker run -d --name jaeger \
 
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \
 K6_OTEL_EXPORTER_OTLP_ENDPOINT=localhost:4317 \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 Open [http://localhost:16686](http://localhost:16686) — search for service `k6`.
@@ -20,7 +20,7 @@ Open [http://localhost:16686](http://localhost:16686) — search for service `k6
 K6_OTEL_EXPORTER_TYPE=http \
 K6_OTEL_EXPORTER_OTLP_ENDPOINT=otlp-gateway-prod-us-central-0.grafana.net \
 K6_OTEL_HEADERS="Authorization=Basic <base64-instanceId:apiKey>" \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 ## Dynatrace
@@ -29,7 +29,7 @@ K6_OTEL_HEADERS="Authorization=Basic <base64-instanceId:apiKey>" \
 K6_OTEL_EXPORTER_TYPE=http \
 K6_OTEL_EXPORTER_OTLP_ENDPOINT=<env-id>.live.dynatrace.com/api/v2/otlp \
 K6_OTEL_HEADERS="Authorization=Api-Token <token>" \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 ## OTel Collector
@@ -39,5 +39,5 @@ Point k6 at your collector:
 ```bash
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \
 K6_OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317 \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```

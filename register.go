@@ -9,8 +9,11 @@ import (
 	_ "github.com/henrikrexed/henrikrexed-xk6-output-opentelemetry/pkg/jsmodule"
 )
 
+// k6 v1.x ships a built-in "opentelemetry" output that handles metrics only.
+// This extension also exports traces and injects W3C Baggage, so it registers
+// under a distinct name to avoid colliding with the built-in.
 func init() {
-	output.RegisterExtension("opentelemetry", func(p output.Params) (output.Output, error) {
+	output.RegisterExtension("otel-extended", func(p output.Params) (output.Output, error) {
 		return otel.New(p)
 	})
 }

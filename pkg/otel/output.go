@@ -50,7 +50,7 @@ func New(p output.Params) (*Output, error) {
 
 // Description returns a human-readable description shown in `k6 run`.
 func (o *Output) Description() string {
-	return fmt.Sprintf("opentelemetry (%s)", o.config)
+	return fmt.Sprintf("otel-extended (%s)", o.config)
 }
 
 // Start initializes the OTel providers and starts the periodic flusher.

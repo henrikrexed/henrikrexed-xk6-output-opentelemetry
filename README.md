@@ -36,7 +36,7 @@ docker run --rm \
   -e K6_OTEL_EXPORTER_OTLP_ENDPOINT=host.docker.internal:4317 \
   -v $(pwd)/test.js:/home/k6/test.js \
   ghcr.io/henrikrexed/henrikrexed-xk6-output-opentelemetry:latest \
-  run --out opentelemetry /home/k6/test.js
+  run --out otel-extended /home/k6/test.js
 ```
 
 ### Build with xk6
@@ -60,7 +60,7 @@ make build
 ```bash
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \
 K6_OTEL_EXPORTER_OTLP_ENDPOINT=localhost:4317 \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 ## Configuration

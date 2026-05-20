@@ -42,7 +42,7 @@ docker run --rm \
   -e K6_OTEL_EXPORTER_OTLP_ENDPOINT=host.docker.internal:4317 \
   -v $(pwd)/test.js:/home/k6/test.js \
   ghcr.io/henrikrexed/henrikrexed-xk6-output-opentelemetry:latest \
-  run --out opentelemetry /home/k6/test.js
+  run --out otel-extended /home/k6/test.js
 ```
 
 You can also pin to a specific version tag (e.g., `ghcr.io/henrikrexed/henrikrexed-xk6-output-opentelemetry:0.0.1`).
@@ -78,7 +78,7 @@ docker run -d --name jaeger \
 # Run k6 with OTel output
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \
 K6_OTEL_EXPORTER_OTLP_ENDPOINT=localhost:4317 \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 Open [http://localhost:16686](http://localhost:16686) to see traces in Jaeger.
@@ -88,5 +88,5 @@ Open [http://localhost:16686](http://localhost:16686) to see traces in Jaeger.
 The k6 output line should show:
 
 ```
-opentelemetry (grpc localhost:4317 [traces+metrics+baggage])
+otel-extended (grpc localhost:4317 [traces+metrics+baggage])
 ```

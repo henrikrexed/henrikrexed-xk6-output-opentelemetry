@@ -50,7 +50,7 @@ All configuration is via environment variables with the `K6_OTEL_` prefix.
 ```bash
 K6_OTEL_TRACES_ENABLED=false \
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 ### Traces only (no metrics)
@@ -58,12 +58,12 @@ K6_OTEL_GRPC_EXPORTER_INSECURE=true \
 ```bash
 K6_OTEL_METRICS_ENABLED=false \
 K6_OTEL_GRPC_EXPORTER_INSECURE=true \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
 
 ### 10% trace sampling
 
 ```bash
 K6_OTEL_TRACES_SAMPLE_RATE=0.1 \
-./k6 run --out opentelemetry test.js
+./k6 run --out otel-extended test.js
 ```
